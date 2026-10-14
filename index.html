@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Пиксельная песочница</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+
+<div class="app">
+  <header>
+    <h1>ПЕСОЧНИЦА</h1>
+    <p>Выбери вещество и рисуй по полю. <kbd>ЛКМ</kbd> сыпать, <kbd>ПКМ</kbd> стирать, <kbd>Пробел</kbd> пауза, <kbd>[</kbd> <kbd>]</kbd> кисть, <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> вид.</p>
+  </header>
+
+  <section class="stage">
+    <canvas id="cv" width="256" height="160" aria-label="Поле симуляции"></canvas>
+    <div class="info">
+      <span>Под курсором: <b id="hover">—</b></span>
+      <span>Частиц: <b id="count">0</b> · <b id="fps">0</b> к/с</span>
+    </div>
+    <div class="bar">
+      <div class="seg" role="group" aria-label="Режим просмотра">
+        <button type="button" id="v0" aria-pressed="true">Вещества</button>
+        <button type="button" id="v1" aria-pressed="false">Температура</button>
+        <button type="button" id="v2" aria-pressed="false">Давление</button>
+      </div>
+      <div class="legend" id="legend" hidden><span id="legL"></span><i id="legBar"></i><span id="legR"></span></div>
+    </div>
+    <div class="bar">
+      <button class="btn" id="pause" type="button">Пауза</button>
+      <button class="btn" id="step" type="button">Шаг</button>
+      <button class="btn" id="speed" type="button">Скорость ×1</button>
+      <button class="btn" id="demo" type="button">Демо-сцена</button>
+      <button class="btn" id="clear" type="button">Очистить</button>
+      <label class="brush" for="size">Кисть
+        <input id="size" type="range" min="0" max="20" value="4">
+        <output id="sizeOut">4</output>
+      </label>
+    </div>
+    <div class="hint" id="hint">
+      <span class="sw" id="hintSw"></span>
+      <div><h2 id="hintName"></h2><p id="hintDesc"></p></div>
+    </div>
+  </section>
+
+  <aside id="menu"></aside>
+</div>
+
+<script src="script.js"></script>
+
+</body></html>
